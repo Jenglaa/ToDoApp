@@ -20,14 +20,18 @@
 
         <form action="/" method="POST">
             <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" placeholder="anything">
-                <label class="floatingInput">Add Todo</label>
+                <input type="text" name="todo" class="form-control" id="floatingInput" placeholder="anything">
+                <label class="floatingInput">Enter Todo</label>
                 <button class="todo-button btn btn-primary" type="submit">Submit</button>
             </div>
         </form>
         
         <div class="todo-container">
-            <ul class="todo-list"></ul>
+            <ul class="list-group">
+                <% todos.forEach( eachTodo => { %>
+                <li class="list-group-item"><%= eachTodo.content %></li>
+                <% }) %>
+            </ul>
         </div>
     </div>
 
