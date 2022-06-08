@@ -25,3 +25,12 @@ header {
 .list-group {
   margin-top: 30px;
 }
+
+.edit-button {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.edit-btn {
+  margin-top: 10px;
+}

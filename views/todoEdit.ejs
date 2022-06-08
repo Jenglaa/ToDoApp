@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/stylesheets/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/js/bootstrap.min.js"></script>
+    <title>TODO List</title>
+</head>
+<body>
+    <div class="main-todo-container">
+        <header class="text-center">
+            <h1>Todo List</h1>
+        </header>
+
+        <form action="/" method="POST">
+            <div class="form-floating">
+                <input type="text" name="todo" class="form-control" id="floatingInput" placeholder="anything">
+                <label class="floatingInput">Enter Todo</label>
+                <button class="todo-button btn btn-primary" type="submit">Submit</button>
+            </div>
+        </form>
+        
+        <div class="todo-container">
+            <ul class="list-group">
+                <% todos.forEach( eachTodo => { %>
+                    <% if (eachTodo._id == idTask) { %>
+                        <li class="list-group-item">
+                            <form>
+                                <div class="form-floating">
+                                    <input type="text" value="<% eachTodo.todo %>" class="form-control" id="floatingInput" name="todo" placeholder="anything">
+                                    <label class="floatingInput"><%= eachTodo.content %></label>
+                                </div>
+                                <div class="edit-btn d-flex justify-content-end">
+                                    <button class="btn btn-primary" type="submit">Confirm</button>
+                                    <a class="btn btn-danger" href="/" role="button">Cancel</a>  
+                                </div>                              
+                            </form>
+                        </li>
+                    <% } else { %>
+                        <li class="list-group-item d-flex justify-content-between"><%= eachTodo.content %>
+                            <a class="btn btn-primary" href="/edit/<%= eachTodo._id %>" role="button"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a class="btn btn-danger" href="/remove/<%= eachTodo._id %>" role="button"><i class="fa-solid fa-trash-can"></i></a>
+                        </li>
+                    <% } %>
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
