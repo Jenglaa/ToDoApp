@@ -17,7 +17,11 @@ header {
 }
 
 .todo-button {
-    padding: 50;
-    width: 500px;
-    margin-top: 10px;
+  padding: 50;
+  width: 500px;
+  margin-top: 10px;
+}
+
+.list-group {
+  margin-top: 30px;
 }
