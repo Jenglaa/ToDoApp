@@ -21,7 +21,7 @@ mongoose.connect(process.env.DB_CONNECT, () => {
 });
 
 // Routes
-app.use(require("./routes/index"));
+app.use(require("./routes/route"));
 
 
 // View engine configuration
