@@ -7,7 +7,8 @@ content: {
 },
 date: {
     type: Date,
-    default: Date.now
+    default: Date.now,
+    timezone:"Asia/Kuala Lumpur",
 }
 })
 module.exports = mongoose.model('Todo', TodoSchema);
