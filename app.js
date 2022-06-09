@@ -3,9 +3,6 @@ const app = express();
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 
-// Models
-const todo = require("./models/todo")
-
 dotenv.config();
 
 app.use("/static", express.static("public"));

@@ -16,7 +16,7 @@
         <section class="vh-100">
             <div class="container py-5">
                 <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col">
+                    <div class="col-8">
                         <div class="card" id="list1" style="border-radius: .75rem; background-color: #eff1f2;">
                             <div class="card-body py-4 px-4 px-md-5">
                 
@@ -39,13 +39,6 @@
 
                                 <% todos.forEach( eachTodo => { %>
                                     <ul class="list-group list-group-horizontal rounded-0 bg-transparent">
-                                        <li
-                                        class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent">
-                                        <div class="form-check">
-                                            <input class="form-check-input me-0" type="checkbox" value="" id="flexCheckChecked1"
-                                            aria-label="..." />
-                                        </div>
-                                        </li>
                                         <li class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent">
                                             <%= eachTodo.content %>
                                         </li>
@@ -60,8 +53,7 @@
                                             </div>
                                                 <div class="text-end text-muted">
                                                 <a href="#!" class="text-muted" data-mdb-toggle="tooltip" title="Created date">
-                                                    <p class="small mb-0"><i class="fas fa-info-circle me-2"></i><%= eachTodo.date %></p>
-                                                </a>
+                                                    <p class="small mb-0"><i class="fas fa-info-circle me-2"></i><%= eachTodo.date.getDate() %>/<%= eachTodo.date.getMonth()+1 %>/<%= eachTodo.date.getFullYear() %> <span><%= eachTodo.date.getHours() %>:<%= eachTodo.date.getMinutes() %></span></p>                                               </a>
                                             </div>
                                         </li>
                                     </ul>
@@ -73,5 +65,4 @@
             </div>
         </section>
     </body>
-
 </html>
