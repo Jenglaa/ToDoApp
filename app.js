@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 3000;
 
+console.log("Database_URL", process.env.DB_CONNECT);
+
 app.use("/static", express.static("public"));
 
 app.use(express.urlencoded({ extended: true }));
@@ -12,6 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 mongoose.connect(process.env.DB_CONNECT, () => {
     console.log("Connected to db!");
 });
+
 
 // Routes
 app.use(require("./routes/route"));
