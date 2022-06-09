@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 
+require("dotenv").config();
+
 const PORT = process.env.PORT || 3000;
 
 app.use("/static", express.static("public"));
@@ -15,7 +17,7 @@ const connectionParams = {
     useUnifiedTopology: true
 }
 mongoose
-    .connect(DB_CONNECT, connectionParams)
+    .connect(process.env.DB_CONNECT, connectionParams)
     .then( () => {
         console.info("Connected to the DB");
     })
