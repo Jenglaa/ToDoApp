@@ -4,25 +4,32 @@ const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 3000;
 
-console.log("Database_URL", process.env.DB_CONNECT);
-
 app.use("/static", express.static("public"));
 
 app.use(express.urlencoded({ extended: true }));
 
 //Connection to db
-mongoose.connect(process.env.DB_CONNECT, () => {
-    console.log("Connected to db!");
-});
+const DB_CONNECT = "mongodb+srv://todolist:12345@cluster1.1bnsjpu.mongodb.net/?retryWrites=true&w=majority"
+const connectionParams = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}
+mongoose
+    .connect(DB_CONNECT, connectionParams)
+    .then( () => {
+        console.info("Connected to the DB");
+    })
+    .catch((e) => {
+        console.log("Error:", e)
+    });
 
 
 // Routes
 app.use(require("./routes/route"));
 
-
 // View engine configuration
 app.set("view engine", "ejs");
 
 app.listen(PORT, () => {
-    console.log('Server started at PORT ${PORT}');
+    console.log('Server started at PORT',PORT);
 });
